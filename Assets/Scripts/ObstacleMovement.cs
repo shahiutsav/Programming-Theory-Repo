@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class ObstacleMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    private float outOfBounds = -10f;
     void Update()
     {
-        transform.position += transform.TransformDirection(Vector3.right) * Time.deltaTime * -1;
+        DestroyOnReachingBoundary();
+        MovingObstacles();
+    }
+
+    // Moving obstacles in the pathway of the player
+    void MovingObstacles()
+    {
+        transform.position += transform.TransformDirection(Vector3.left) * Time.deltaTime;
+    }
+
+    // Destroying obstacles when they are off screen
+    void DestroyOnReachingBoundary()
+    {
+        if (gameObject.transform.position.x <= outOfBounds)
+        {
+            Destroy(gameObject);
+        }
     }
 }

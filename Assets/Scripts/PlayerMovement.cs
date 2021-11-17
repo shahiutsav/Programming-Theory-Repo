@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody m_Rigidbody;
-    public float m_Thrust = 2f;
+    private float m_Thrust = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            m_Rigidbody.AddForce(transform.up * m_Thrust, ForceMode.Impulse);
+            m_Rigidbody.velocity = Vector3.up * m_Thrust;
         }
     }
 }
