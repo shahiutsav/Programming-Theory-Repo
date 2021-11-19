@@ -6,11 +6,13 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody m_Rigidbody;
     public float m_Thrust = 2.2f;
-    private bool IsFlying = true;
+    public bool IsFlying = true;
 
     private int score = 0;
 
     private GameManager gameManager;
+
+    private ObstacleMovement obstacleMovement;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         IsFlying = false;
+        gameManager.ShowGameOver();
     }
 
     private void OnTriggerEnter(Collider other)
