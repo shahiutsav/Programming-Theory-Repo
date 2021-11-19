@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObstacleMovement : MonoBehaviour
 {
+    private PlayerMovement playerMovement;
     private float outOfBounds = -10f;
     void Update()
     {
@@ -14,7 +15,7 @@ public class ObstacleMovement : MonoBehaviour
     // Moving obstacles in the pathway of the player
     void MovingObstacles()
     {
-        transform.position += transform.TransformDirection(Vector3.left) * Time.deltaTime;
+            transform.position += transform.TransformDirection(Vector3.left) * Time.deltaTime;
     }
 
     // Destroying obstacles when they are off screen
